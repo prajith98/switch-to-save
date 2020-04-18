@@ -1,7 +1,7 @@
 import './App.css';
 
 import React, { Component } from 'react'
-var converter = require('number-to-words');
+var converter = require('paisa.js');
 
  class App extends Component {
   constructor(props) {
@@ -58,16 +58,16 @@ var converter = require('number-to-words');
       <div className="App"> 
         <br></br>
         <input type="text" onChange={this.handleNum1Change} value={this.state.num1} name="num1" />
-        <h5>{converter.toWords(this.state.n1)}</h5>
+        <h5>{converter.words(this.state.n1*100).replace("rupees","")}</h5>
         <h1>+</h1>
         <input type="text" onChange={this.handleNum2Change} value={this.state.num2} name="num2" />
-        <h5>{converter.toWords(this.state.n2)}</h5>
+        <h5>{converter.words(this.state.n2*100).replace("rupees","")}</h5>
         <br/><br/>
         <button className="Calc" onClick={this.addAction}>Calculate</button>
         <button className="Res" onClick={this.resetAction}>Reset</button>
         <br/><br/>
         <input className="total" type="text" value={this.state.result} readOnly/>
-        <h5>{converter.toWords(this.state.total)}</h5>
+        <h5>{converter.words(this.state.total*100).replace("rupees","")}</h5>
       </div>
     )
   }
